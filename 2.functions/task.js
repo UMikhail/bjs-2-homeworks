@@ -5,16 +5,13 @@ function getArrayParams(arr) {
   max = -Infinity
   sum = 0
   for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]   //находим сумму значений массива
     if (arr[i] > max) {
       max = arr[i]  //находим максимальное значение массива
     }
     if (arr[i] < min) {
       min = arr[i]  //находим минимальное значение массива
     }
-  }
-
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i]  //находим сумму значений массива
   }
 
   avg = sum / arr.length //находим среднее значение массива
@@ -35,9 +32,9 @@ function worker(arr) {
 function makeWork(arrOfArr, func) {
   let max = 0
   for (let i = 0; i < arrOfArr.length; i++) {
-    let sumElemet = func(arrOfArr[i]) // включаем функцию для каждого элемента массива
-    if (sumElemet > max) {
-      max = sumElemet //ищем максимальное значение элемента
+    let element = func(arrOfArr[i]) // включаем функцию для каждого элемента массива
+    if (element > max) {
+      max = element //ищем максимальное значение элемента
     }
   }
   return max;
@@ -55,6 +52,5 @@ function worker2(arr) {
       minMeaning = arr[i]  //находим минимальное значение массива
     }
   }
-  let difference = Math.abs(maxMeaning - minMeaning) //находим разницу max и min, метод Math.abs() - вычисление модуля
-  return difference
+  return Math.abs(maxMeaning - minMeaning) //находим разницу max и min, метод Math.abs() - вычисление модуля
 }
